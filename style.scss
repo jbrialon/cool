@@ -1,0 +1,42 @@
+/* https://coolors.co/dd6e42-e8dab2-4f6d7a-c0d6df-eaeaea */
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+html, body {
+  background: #EAEAEA;
+}
+
+#app {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Nunito', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+
+  h1 {
+    position: relative;
+    color: #DD6E42;
+    margin: auto;
+    padding: 0;
+
+    &:after {
+      position: absolute;
+      bottom: 2px;
+      left: 8px;
+      display: block;
+      content: '';
+      background: #4F6D7A;
+      height: 3px;
+      right: 2px;
+    }
+  }
+}
