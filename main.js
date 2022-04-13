@@ -1,5 +1,6 @@
+import 'normalize.css'
 import './style.css'
 
 document.querySelector('#app').innerHTML = `
-  <h1>welcome to jerem.cool</h1>
+  <h1>jerem.cool</h1>
 `
