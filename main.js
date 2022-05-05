@@ -2,7 +2,8 @@ import 'normalize.css'
 import './style.scss'
 
 import { gsap } from 'gsap'
-var width, height, largeHeader, canvas, ctx, triangles, target, animateHeader = true;
+
+let width, height, app, canvas, ctx, triangles, target, animateApp = true;
 const colors = [
   '221, 110, 66',
   '232, 218, 178',
@@ -23,8 +24,8 @@ function initHeader() {
     y: height
   };
 
-  largeHeader = document.getElementById('app');
-  largeHeader.style.height = height + 'px';
+  app = document.getElementById('app');
+  app.style.height = height + 'px';
 
   canvas = document.getElementById('canvas');
   canvas.width = width;
@@ -39,7 +40,7 @@ function initHeader() {
 }
 
 function addTriangle(delay) {
-  setTimeout(function () {
+  setTimeout(() => {
     var t = new Triangle();
     triangles.push(t);
     tweenTriangle(t);
@@ -60,7 +61,7 @@ function tweenTriangle(tri) {
     x: x,
     y: y,
     ease: 'Circ.easeOut',
-    onComplete: function () {
+    onComplete: () =>  {
       tri.init();
       tweenTriangle(tri);
     }
@@ -74,20 +75,20 @@ function addListeners() {
 }
 
 function scrollCheck() {
-  if (document.body.scrollTop > height) animateHeader = false;
-  else animateHeader = true;
+  if (document.body.scrollTop > height) animateApp = false;
+  else animateApp = true;
 }
 
 function resize() {
   width = window.innerWidth;
   height = window.innerHeight;
-  largeHeader.style.height = height + 'px';
+  app.style.height = height + 'px';
   canvas.width = width;
   canvas.height = height;
 }
 
 function animate() {
-  if (animateHeader) {
+  if (animateApp) {
     ctx.clearRect(0, 0, width, height);
     for (var i in triangles) {
       triangles[i].draw();
